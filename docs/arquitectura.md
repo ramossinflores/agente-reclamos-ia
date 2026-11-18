@@ -87,6 +87,8 @@ Un caso se aprueba solo si cumple su resultado esperado en las dos corridas y no
 
 Las cuatro se comprueban automáticamente leyendo el registro. Los resultados están en [resultados.md](resultados.md).
 
+Aparte, el Bloque 6 del notebook prueba los controles sin el modelo: hace directamente las peticiones que haría un modelo engañado (pedido de otro cliente, identidad suplantada, montos falsos, herramientas inexistentes) y comprueba que el código las bloquea. El análisis completo está en [seguridad.md](seguridad.md).
+
 ## Decisiones de diseño
 
 - **Gemini en lugar de Claude.** El nivel gratuito de Google AI Studio permite probar sin costo. El diseño no depende del proveedor: cambiar de modelo solo afecta la conexión y el formato de las herramientas.
