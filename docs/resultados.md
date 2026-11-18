@@ -61,10 +61,17 @@ En esta ejecución la regla de las instrucciones fue suficiente para el caso 6, 
 
 **Consumo:** 31.223 tokens de entrada para las 16 conversaciones. Ninguna pasó del 80 % del presupuesto de 30.000 tokens.
 
+## Pruebas de los controles sin el modelo (Bloque 6)
+
+En las tres ejecuciones el modelo se negó por su cuenta a consultar el pedido de otro cliente (caso 8), así que el control de identidad del código nunca llegó a actuar. Para verificarlo igual, el Bloque 6 ataca los controles directamente, con las peticiones que haría un modelo engañado: pedido ajeno, enumeración, suplantación de `cliente_id`, números no vistos, montos y tipos falsos, una herramienta inexistente, consultas repetidas, el filtro de salida y el registro.
+
+**Resultado: 21 de 21 pruebas superadas.** Estas pruebas no usan el modelo, así que siempre dan el mismo resultado.
+
+Para comprobar que las pruebas detectan fallos de verdad, se quitó a propósito la comprobación de dueño en una copia del código: las 5 pruebas de IDOR y enumeración fallaron, como debían. El análisis completo está en [seguridad.md](seguridad.md).
+
 ## Limitaciones conocidas
 
 - **El filtro de salida y la invariante 4 trabajan con palabras.** Una frase muy distinta podría escaparse. Si el filtro se equivoca hacia el otro lado y salta cuando no debía, el resultado es un caso de más para que lo revise una persona. Es un error seguro.
-- **El caso 8 no llegó a poner a prueba el control de identidad del código.** El modelo se negó por su cuenta sin consultar el pedido 5310.
 - **El caso 3 no exige que el agente mencione el reclamo anterior.** El agente consulta el historial, pero en sus respuestas no lo menciona, y la prueba no lo revisa.
 - **La caché no se usó.** Las conversaciones son cortas y no llegan al mínimo de tokens que Gemini necesita para activar la caché implícita.
 - **Es un prototipo con datos ficticios.** Conectarlo a sistemas reales exigiría autenticación del cliente, una interfaz de aprobación real, monitoreo y más pruebas.
