@@ -1,0 +1,13 @@
+# Claves y variables de entorno: nunca se suben
+.env
+*.key
+secrets*
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Sistema
+.DS_Store
+Thumbs.db
