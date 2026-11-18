@@ -107,7 +107,7 @@ agente-reclamos-ia/
 
 ## Sobre el proyecto
 
-Proyecto práctico del **Curso de Fundamentos de Agentes con IA** de Platzi, a partir del caso de estudio del curso. Construido con *vibe coding*: describiendo el diseño a una IA, ejecutando y probando el código, y pidiendo correcciones a partir de los resultados.
+Proyecto práctico del **Curso de Fundamentos de Agentes con IA** de Platzi, a partir del caso de estudio del curso. Desarrollado con asistencia de IA: yo definí el enfoque y los requisitos, ejecuté y revisé las pruebas, y decidí qué corregir a partir de los resultados.
 
 Lo que agregué respecto al ejercicio del curso:
 
